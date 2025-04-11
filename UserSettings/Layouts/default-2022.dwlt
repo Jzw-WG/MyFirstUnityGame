@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -122,16 +122,16 @@ MonoBehaviour:
     y: 636.8
     width: 1377.6
     height: 359.60004
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 21}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 21}
   - {fileID: 13}
   - {fileID: 12}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -274,8 +274,8 @@ MonoBehaviour:
     y: 0
     width: 1056.8
     height: 636.8
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -389,7 +389,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -13694
+  m_LastSelectedObjectID: 21582
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -503,7 +503,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -511,16 +511,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\UnityProjects\HlwXxg
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 76.599976}
-    m_SelectedIDs: 28550000
-    m_LastClickedID: 21800
-    m_ExpandedIDs: 000000001055000012550000285500002c55000000ca9a3bffffff7f
+    m_SelectedIDs: 56550000
+    m_LastClickedID: 21846
+    m_ExpandedIDs: 000000003a5500003c550000525500005655000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -548,7 +548,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001055000012550000
+    m_ExpandedIDs: 000000003a5500003c550000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -573,10 +573,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: dee1ffff
-    m_LastClickedInstanceID: -7714
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000fc6a0000c2640000c8640000f06100000e61000010610000e2610000f2610000f05400004c5500009c5400004654000004560000
+    m_ExpandedInstanceIDs: c6230000fc6a0000c2640000c8640000f06100000e61000010610000e2610000f2610000f05400004c5500009c5400004654000004560000ca540000f85f0000ce540000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -690,7 +690,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 26bcfeff82caffffece0ffffdee1ffff14e2ffff1efbffff5e540000
+      m_ExpandedIDs: 142affff868affffbe8afffff68affff2e8bffff668bffff9e8bffffd68bffff0c9dffff52a5ffff9ed3ffff16d4ffff1efbffff24540000285400002c540000485400007a5400009e540000a6540000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1083,9 +1083,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.1225665, y: 0.07148957, z: 1.4449251}
+    m_Target: {x: -2.0069804, y: 1.8775162, z: 1.4275919}
     speed: 2
-    m_Value: {x: 1.1225665, y: 0.07148957, z: 1.4449251}
+    m_Value: {x: -2.0069804, y: 1.8775162, z: 1.4275919}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1135,9 +1135,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.3679957
+    m_Target: 4.1059437
     speed: 2
-    m_Value: 2.3679957
+    m_Value: 4.1059437
   m_Ortho:
     m_Target: 1
     speed: 2

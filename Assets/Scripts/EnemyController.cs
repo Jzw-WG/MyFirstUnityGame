@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -15,6 +16,9 @@ public class EnemyController : MonoBehaviour
     private float hitCounter;
 
     public float health = 5f;
+
+    public float knockBackTime = .5f;
+    private float knockBackCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,19 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 受击击退
+        if (knockBackCounter > 0) {
+            knockBackCounter -= Time.deltaTime;
+            if (moveSpeed > 0) {
+                moveSpeed = -moveSpeed * 2f;
+            }
+
+            if (knockBackCounter <= 0) {
+                moveSpeed = Mathf.Abs(moveSpeed * .5f);
+            }
+        }
+
+
         // 这里不需要deltatime也能保持不同帧率很定速度
         theRB.velocity = (target.position - transform.position).normalized * moveSpeed;
         if (hitCounter > 0f) {
@@ -43,6 +60,15 @@ public class EnemyController : MonoBehaviour
         health -= damageToTake;
         if (health <= 0) {
             Destroy(gameObject);
+        }
+        //显示伤害数字
+        DamageNumberController.instance.SpawnDamage(damageToTake, transform.position);
+    }
+
+    public void TakeDamage(float damageToTake, bool shouldKnockBack) {
+        TakeDamage(damageToTake);
+        if (shouldKnockBack == true) {
+            knockBackCounter = knockBackTime;
         }
     }
 }
