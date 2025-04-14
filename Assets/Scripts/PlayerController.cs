@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AddWeapon(Random.Range(0, unassignedWeapons.Count));
+        if (assignedWeapons.Count == 0) {
+            AddWeapon(Random.Range(0, unassignedWeapons.Count));
+        }
     }
 
     // Update is called once per frame
