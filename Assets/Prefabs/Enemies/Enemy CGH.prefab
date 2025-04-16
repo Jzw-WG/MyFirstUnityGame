@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6924352163561077616}
   - component: {fileID: 6174778253649837186}
   - component: {fileID: 1607762042346310349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy CGH
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   hitWaitTime: 1
   health: 10
   knockBackTime: 0.5
+  expToGive: 1
 --- !u!114 &1607762042346310349
 MonoBehaviour:
   m_ObjectHideFlags: 0
