@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -21,6 +20,9 @@ public class EnemyController : MonoBehaviour
     private float knockBackCounter;
 
     public int expToGive = 1;
+
+    public int coinValue = 1;
+    public float coinDropRate = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,24 +33,30 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 受击击退
-        if (knockBackCounter > 0) {
-            knockBackCounter -= Time.deltaTime;
-            if (moveSpeed > 0) {
-                moveSpeed = -moveSpeed * 2f;
+        if (PlayerController.instance.gameObject.activeSelf == true) {
+            // 受击击退
+            if (knockBackCounter > 0) {
+                knockBackCounter -= Time.deltaTime;
+                if (moveSpeed > 0) {
+                    moveSpeed = -moveSpeed * 2f;
+                }
+
+                if (knockBackCounter <= 0) {
+                    moveSpeed = Mathf.Abs(moveSpeed * .5f);
+                }
             }
 
-            if (knockBackCounter <= 0) {
-                moveSpeed = Mathf.Abs(moveSpeed * .5f);
+
+            // 这里不需要deltatime也能保持不同帧率很定速度
+            theRB.velocity = (target.position - transform.position).normalized * moveSpeed;
+            if (hitCounter > 0f) {
+                hitCounter -= Time.deltaTime;
             }
+        } else {
+            // 玩家死亡后怪物静止
+            theRB.velocity = Vector2.zero;
         }
-
-
-        // 这里不需要deltatime也能保持不同帧率很定速度
-        theRB.velocity = (target.position - transform.position).normalized * moveSpeed;
-        if (hitCounter > 0f) {
-            hitCounter -= Time.deltaTime;
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -64,6 +72,9 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
 
             ExperienceLevelController.instance.SpawnExp(transform.position, expToGive);
+            if (Random.value <= coinDropRate) {
+                CoinController.instance.DropCoin(transform.position, coinValue);
+            }
         }
         //显示伤害数字
         DamageNumberController.instance.SpawnDamage(damageToTake, transform.position);

@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     public TMP_Text explvlText;
     public LevelUpSelectionButton[] levelUpButtons;
     public GameObject levelUpPanel;
+    public TMP_Text coinAmountText;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,5 +38,9 @@ public class UIController : MonoBehaviour
     public void SkipLevelUp() {
         levelUpPanel.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void UpdateCoins() {
+        coinAmountText.text = "Coins: " + CoinController.instance.currentCoins;
     }
 }
