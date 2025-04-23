@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
         if (assignedWeapons.Count == 0) {
             AddWeapon(Random.Range(0, unassignedWeapons.Count));
         }
+
+        moveSpeed = PlayerStatController.instance.moveSpeed[0].value;
+        pickupRange = PlayerStatController.instance.pickupRange[0].value;
+        maxWeapons = Mathf.RoundToInt(PlayerStatController.instance.maxWeapons[0].value);
     }
 
     // Update is called once per frame

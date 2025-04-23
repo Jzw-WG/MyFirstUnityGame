@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,6 +18,8 @@ public class UIController : MonoBehaviour
     public LevelUpSelectionButton[] levelUpButtons;
     public GameObject levelUpPanel;
     public TMP_Text coinAmountText;
+    public PlayerStatUpgradeController moveSpeedUpgradeDisplay, healthUpgradeDisplay, pickupRangeUpgradeDisplay, maxWeaponUpgradeDisplay;
+    public TMP_Text timerText;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +45,33 @@ public class UIController : MonoBehaviour
 
     public void UpdateCoins() {
         coinAmountText.text = "Coins: " + CoinController.instance.currentCoins;
+    }
+
+    
+    public void PurchaseMoveSpeed() {
+        PlayerStatController.instance.PurchaseMoveSpeed();
+        SkipLevelUp();
+    }
+
+    public void PurchaseHealth() {
+        PlayerStatController.instance.PurchaseHealth();
+        SkipLevelUp();
+    }
+
+    public void PurchasePickupRange() {
+        PlayerStatController.instance.PurchasePickupRange();
+        SkipLevelUp();
+    }
+
+    public void PurchaseMaxWeapons() {
+        PlayerStatController.instance.PurchaseMaxWeapons();
+        SkipLevelUp();
+    }
+
+    public void UpdateTimer(float time) {
+        float minutes = Mathf.FloorToInt(time / 60f);
+        float seconds = Mathf.FloorToInt(time % 60);
+
+        timerText.text = "Time: " + minutes + ":" + seconds.ToString("00");
     }
 }
