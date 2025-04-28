@@ -35,6 +35,7 @@ public class SpinWeapon : Weapon
                 float rot = i * (360f / stats[weaponLevel].amount);
                 Instantiate(fireballToSpawn, fireballToSpawn.position, Quaternion.Euler(0f, 0f, rot), holder).gameObject.SetActive(true);
             }
+            SFXManager.instance.PlaySFX(13);
         }
 
         if (statsUpdated == true) {

@@ -75,6 +75,9 @@ public class EnemyController : MonoBehaviour
             if (Random.value <= coinDropRate) {
                 CoinController.instance.DropCoin(transform.position, coinValue);
             }
+            SFXManager.instance.PlaySFXPitched(2);
+        } else {
+            SFXManager.instance.PlaySFXPitched(10, 0, 1);
         }
         //显示伤害数字
         DamageNumberController.instance.SpawnDamage(damageToTake, transform.position);

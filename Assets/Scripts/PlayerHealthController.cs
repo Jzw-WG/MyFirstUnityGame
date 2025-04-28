@@ -37,6 +37,7 @@ public class PlayerHealthController : MonoBehaviour
             gameObject.SetActive(false);
             LevelManager.instance.EndLevel();
             Instantiate(dealthEffect, transform.position, transform.rotation);
+            SFXManager.instance.PlaySFX(11);
         }
 
         healthSlider.value = currentHealth;

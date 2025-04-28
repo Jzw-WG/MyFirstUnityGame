@@ -42,6 +42,7 @@ public class ProjectileWeapon : Weapon
                     // 生成后不跟随玩家
                     Instantiate(projectile, projectile.transform.position, projectile.transform.rotation).gameObject.SetActive(true);
                 }
+                SFXManager.instance.PlaySFXPitched(12);
             }
         }
     }

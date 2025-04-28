@@ -35,6 +35,7 @@ AudioMixerGroupController:
   m_GroupID: 54e4bb466c657be439e8a0f7b23686f8
   m_Children:
   - {fileID: 1562277904441352479}
+  - {fileID: 5862021602191854994}
   m_Volume: 4ab40497572ab8340936dca48a524668
   m_Pitch: fc55d9a6ae8082f4a9385b3d8fba9ae5
   m_Send: 00000000000000000000000000000000
@@ -67,7 +68,10 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 578e62b0a1a789049b9b74554b0d83ef
-  m_FloatValues: {}
+  m_FloatValues:
+    ede9be04c0ea8e8479ed3fabdb08ce70: -14.846609
+    4ab40497572ab8340936dca48a524668: 0.028543865
+    0e8557a7ca084794c877841e24c475d6: -5.988451
   m_TransitionOverrides: {}
 --- !u!244 &1419457997921787010
 AudioMixerEffectController:
@@ -92,8 +96,7 @@ AudioMixerGroupController:
   m_Name: Music
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 7993d6d469657b4428d07f413a70dc0e
-  m_Children:
-  - {fileID: 5862021602191854994}
+  m_Children: []
   m_Volume: ede9be04c0ea8e8479ed3fabdb08ce70
   m_Pitch: 2ac374afd62fc974bb3aa59ec1484eee
   m_Send: 00000000000000000000000000000000
