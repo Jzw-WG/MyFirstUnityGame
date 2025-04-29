@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
 
     public int coinValue = 1;
     public float coinDropRate = 0.2f;
+    public EnumBrotherType brotherType;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,7 +78,11 @@ public class EnemyController : MonoBehaviour
             }
             SFXManager.instance.PlaySFXPitched(2);
         } else {
-            SFXManager.instance.PlaySFXPitched(10, 0, 1);
+            if (brotherType.Equals(EnumBrotherType.Yellow)) {
+                SFXManager.instance.PlaySFXPitched(15);
+            } else {
+                SFXManager.instance.PlaySFXPitched(16);
+            }
         }
         //显示伤害数字
         DamageNumberController.instance.SpawnDamage(damageToTake, transform.position);

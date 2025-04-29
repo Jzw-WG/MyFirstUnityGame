@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
 {
     public List<WeaponStats> stats;
     public int weaponLevel;
+    public EnumWeaponType weaponType;
     // 在unity调试隐藏
     [HideInInspector]
     public bool statsUpdated;

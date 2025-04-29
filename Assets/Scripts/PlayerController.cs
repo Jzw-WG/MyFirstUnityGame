@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
 
     public int maxWeapons = 3;
 
+    private bool isSlowed = false;
+    private float originalSpeed;
+
     [HideInInspector]
     public List<Weapon> fullyLeveledWeapons = new List<Weapon>();
     private void Awake()
@@ -68,5 +71,20 @@ public class PlayerController : MonoBehaviour
         weaponToAdd.gameObject.SetActive(true);
         assignedWeapons.Add(weaponToAdd);
         unassignedWeapons.Remove(weaponToAdd);
+    }
+
+    public void ApplySlow(float factor, float duration) {
+        if (!isSlowed) {
+            isSlowed = true;
+            originalSpeed = moveSpeed;
+            moveSpeed *= factor;
+            StartCoroutine(RemoveSlow(duration));
+        }
+    }
+
+    IEnumerator RemoveSlow(float time) {
+        yield return new WaitForSeconds(time);
+        moveSpeed = originalSpeed;
+        isSlowed = false;
     }
 }
