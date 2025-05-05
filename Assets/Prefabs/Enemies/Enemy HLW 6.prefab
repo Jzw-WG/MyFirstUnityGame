@@ -195,6 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb627e21396c3344bb28d66d276d6f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 1
+  invisibleTime: 10
+  sprite: {fileID: 7907177005096562904}
 --- !u!1 &7907177005096562904
 GameObject:
   m_ObjectHideFlags: 0

@@ -67,7 +67,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageToTake) {
+    public void TakeDamage(float damageToTake, EnumWeaponType weaponType) {
         health -= damageToTake;
         if (health <= 0) {
             Destroy(gameObject);
@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
             }
             SFXManager.instance.PlaySFXPitched(2);
         } else {
-            if (brotherType.Equals(EnumBrotherType.Yellow)) {
+            if (brotherType.Equals(EnumBrotherType.Yellow) && EnumWeaponType.Iron.Equals(weaponType)) {
                 SFXManager.instance.PlaySFXPitched(15);
             } else {
                 SFXManager.instance.PlaySFXPitched(16);
@@ -88,8 +88,8 @@ public class EnemyController : MonoBehaviour
         DamageNumberController.instance.SpawnDamage(damageToTake, transform.position);
     }
 
-    public void TakeDamage(float damageToTake, bool shouldKnockBack) {
-        TakeDamage(damageToTake);
+    public void TakeDamage(float damageToTake, bool shouldKnockBack, EnumWeaponType weaponType) {
+        TakeDamage(damageToTake, weaponType);
         if (shouldKnockBack == true) {
             knockBackCounter = knockBackTime;
         }

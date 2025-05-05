@@ -15,6 +15,7 @@ public class EnemyDamager : MonoBehaviour
     private float damageCounter;
     private List<EnemyController> enemiesInRange = new List<EnemyController>();
     public bool destroyOnImpact;
+    public EnumWeaponType weaponType;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +52,7 @@ public class EnemyDamager : MonoBehaviour
                 for (int i = 0; i < enemiesInRange.Count; i++)
                 {
                     if (enemiesInRange[i] != null) {
-                        enemiesInRange[i].TakeDamage(damageAmount, shouldKnockBack);
+                        enemiesInRange[i].TakeDamage(damageAmount, shouldKnockBack, weaponType);
                     } else {
                         enemiesInRange.RemoveAt(i);
                         i--;
@@ -64,7 +65,7 @@ public class EnemyDamager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (damageOverTime == false) {
             if (collision.tag == "Enemy") {
-                collision.GetComponent<EnemyController>().TakeDamage(damageAmount, shouldKnockBack);
+                collision.GetComponent<EnemyController>().TakeDamage(damageAmount, shouldKnockBack, weaponType);
                 if (destroyOnImpact == true) {
                     Destroy(gameObject);
                 }
