@@ -364,8 +364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11a27e39af48054ebefac88589810e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  absorbInterval: 10
-  absorbDuration: 0.5
+  absorbInterval: 6
+  absorbDuration: 3
+  absorbTime: 2
   absorbRadius: 8
   huluTransform: {fileID: 8036764912274889461}
   sprite: {fileID: 7827328311097433633}

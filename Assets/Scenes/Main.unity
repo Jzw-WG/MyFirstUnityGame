@@ -842,6 +842,7 @@ MonoBehaviour:
   - {fileID: 1699794815}
   - {fileID: 1227382688}
   - {fileID: 276877049}
+  - {fileID: 180075117}
 --- !u!1 &145498070
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +909,6 @@ MonoBehaviour:
     duration: 0.7
     upgradeText: 
   weaponLevel: 0
-  weaponType: 0
   statsUpdated: 0
   icon: {fileID: 21300000, guid: cbe61dd44e9092d48a8c8c01e5602f45, type: 3}
   damager: {fileID: 1313781562}
@@ -1158,6 +1158,134 @@ Canvas:
   m_SortingLayerID: -570171201
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &180075116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180075118}
+  - component: {fileID: 180075117}
+  m_Layer: 0
+  m_Name: "\u80FD\u91CF\u5438\u6536A_\u7231\u7ED9\u7F51_aigei_com"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &180075117
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180075116}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1687705f6cf2d0f43ab607fc6dd5ce00, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &180075118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180075116}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -909.9813, y: -729.9106, z: 10.238147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 720883220}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &181822111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1404,6 @@ MonoBehaviour:
     duration: 2
     upgradeText: 
   weaponLevel: 0
-  weaponType: 0
   statsUpdated: 0
   icon: {fileID: 21300000, guid: 9c10e4996aa98f54f8dc465caa30c039, type: 3}
   damager: {fileID: 1888642658}
@@ -2817,7 +2944,6 @@ MonoBehaviour:
     duration: 3
     upgradeText: fully upgraded
   weaponLevel: 0
-  weaponType: 1
   statsUpdated: 0
   icon: {fileID: 21300000, guid: f475682716744ec4f8fad886dc60ef0a, type: 3}
   rotateSpeed: 360
@@ -3862,6 +3988,7 @@ Transform:
   - {fileID: 1699794816}
   - {fileID: 1227382689}
   - {fileID: 276877050}
+  - {fileID: 180075118}
   m_Father: {fileID: 143478249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734066546
@@ -9171,7 +9298,7 @@ GameObject:
   - component: {fileID: 1434168081}
   - component: {fileID: 1434168082}
   - component: {fileID: 1434168083}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -15307,7 +15434,6 @@ MonoBehaviour:
     duration: 7
     upgradeText: fully
   weaponLevel: 0
-  weaponType: 1
   statsUpdated: 0
   icon: {fileID: 21300000, guid: c3ea9495ad38e0344980885cd416d7df, type: 3}
   damager: {fileID: 1345729256}
@@ -104388,7 +104514,6 @@ MonoBehaviour:
     duration: 0.5
     upgradeText: 
   weaponLevel: 0
-  weaponType: 0
   statsUpdated: 0
   icon: {fileID: -184466338, guid: df92d2c1a1d951b40bbeb716f49ede72, type: 3}
   damager: {fileID: 1149593293}
@@ -104397,6 +104522,7 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
+  SFXIndex: 12
 --- !u!4 &1862861724
 Transform:
   m_ObjectHideFlags: 0
@@ -105876,7 +106002,7 @@ MonoBehaviour:
   maxSpawn: {fileID: 486180943}
   checkPerFrame: 10
   waves:
-  - enemyToSpawn: {fileID: 8590423044585318786, guid: e4829b2f76a94f64f9fc0381c10e53d2, type: 3}
+  - enemyToSpawn: {fileID: 6824065023825364718, guid: ee058f34bfb8e3643a2bc84d001b0928, type: 3}
     waveLength: 10
     timeBetweenSpawn: 0.5
   - enemyToSpawn: {fileID: 1760426055807586376, guid: 654db0fe9000676478208881e63695bb, type: 3}

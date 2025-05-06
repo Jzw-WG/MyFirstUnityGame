@@ -25,11 +25,17 @@ public class SFXManager : MonoBehaviour
     }
 
     public void PlaySFXPitched(int sfxToPlay) {
+        if (sfxToPlay < 0) {
+            return;
+        }
         soundEffects[sfxToPlay].pitch = Random.Range(.8f, 1.2f);
         PlaySFX(sfxToPlay);
     }
 
     public void PlaySFXPitched(int sfxToPlay, float startTime, float endTime) {
+        if (sfxToPlay < 0) {
+            return;
+        }
         soundEffects[sfxToPlay].pitch = Random.Range(.8f, 1.2f);
         PlaySFX(sfxToPlay, startTime, endTime);
     }

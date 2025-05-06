@@ -6,6 +6,7 @@ public class BrotherSeven : MonoBehaviour
 {
     public float absorbInterval = 6f;
     public float absorbDuration = 3f;
+    public float absorbTime = 2f;
     public float absorbRadius = 8f;
     public Transform huluTransform;
     public GameObject sprite;
@@ -19,7 +20,7 @@ public class BrotherSeven : MonoBehaviour
 
     void Start()
     {
-        absorbCounter = 10f;
+        absorbCounter = absorbInterval;
     }
 
     void Update()
@@ -69,6 +70,9 @@ public class BrotherSeven : MonoBehaviour
         bool absorbedAny = false;
         foreach (GameObject weapon in allWeapons)
         {
+            if (weapon == null) {
+                continue;
+            }
             var targetAbsorber = FindClosestAbsorber(weapon.transform.position);
             if (targetAbsorber != null)
             {
@@ -90,14 +94,16 @@ public class BrotherSeven : MonoBehaviour
 
     IEnumerator MoveAndShrinkToHulu(GameObject weapon, Transform target)
     {
+        // 有点吵
+        // SFXManager.instance.PlaySFXPitched(17);
         Vector3 startPos = weapon.transform.position;
         Vector3 startScale = weapon.transform.localScale;
 
         float t = 0f;
-        while (t < absorbDuration)
+        while (t < absorbTime)
         {
             t += Time.deltaTime;
-            float percent = t / absorbDuration;
+            float percent = t / absorbTime;
 
             weapon.transform.position = Vector3.Lerp(startPos, target.position, percent);
             weapon.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, percent);
