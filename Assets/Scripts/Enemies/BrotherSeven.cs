@@ -104,7 +104,9 @@ public class BrotherSeven : MonoBehaviour
         {
             t += Time.deltaTime;
             float percent = t / absorbTime;
-
+            if (weapon == null) {
+                continue;
+            }
             weapon.transform.position = Vector3.Lerp(startPos, target.position, percent);
             weapon.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, percent);
 

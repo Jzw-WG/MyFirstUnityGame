@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileWeapon : Weapon
 {
     public EnemyDamager damager;
+    public PlayerDamager playerDamager;
     public Projectile projectile;
 
     private float shotCounter;
@@ -49,10 +50,19 @@ public class ProjectileWeapon : Weapon
     }
 
     public void SetStats() {
-        damager.damageAmount = stats[weaponLevel].damage;
-        damager.transform.localScale = Vector3.one * stats[weaponLevel].range;
-        damager.lifeTime = stats[weaponLevel].duration;
         shotCounter = 0f;
         projectile.moveSpeed = stats[weaponLevel].speed;
+        if (damager != null) {
+            damager.damageAmount = stats[weaponLevel].damage;
+            damager.transform.localScale = Vector3.one * stats[weaponLevel].range;
+            damager.lifeTime = stats[weaponLevel].duration;
+            return;
+        }
+        if (playerDamager != null) {
+            playerDamager.damageAmount = stats[weaponLevel].damage;
+            playerDamager.transform.localScale = Vector3.one * stats[weaponLevel].range;
+            playerDamager.lifeTime = stats[weaponLevel].duration;
+            return;
+        }
     }
 }
