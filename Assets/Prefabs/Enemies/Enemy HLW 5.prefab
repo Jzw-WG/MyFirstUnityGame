@@ -198,9 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theRB: {fileID: 3427183471439109104}
   moveSpeed: 1
-  damage: 1
+  damage: 20
   hitWaitTime: 1
-  health: 5
+  health: 25
   knockBackTime: 0.5
   expToGive: 1
   coinValue: 10000
@@ -279,3 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4ec4a1145e4ba418c6790376af9dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubblePrefab: {fileID: 8962609912548738011, guid: 7135f73effa84ec46bede51e763e3f5c, type: 3}
+  fireInterval: 4
+  fireRange: 8

@@ -874,35 +874,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - speed: 0
-    damage: 5
+    damage: 10
     range: 1
     timeBetweenAttacks: 2
     amount: 1
     duration: 0.5
     upgradeText: amount + 1
   - speed: 0
-    damage: 6
+    damage: 12
     range: 1
     timeBetweenAttacks: 2
     amount: 2
     duration: 0.5
     upgradeText: time up
   - speed: 0
-    damage: 7
+    damage: 14
     range: 1.5
     timeBetweenAttacks: 2
     amount: 2
     duration: 0.5
     upgradeText: amount + 1
   - speed: 0
-    damage: 8
+    damage: 16
     range: 1.5
     timeBetweenAttacks: 1.5
     amount: 3
     duration: 0.7
     upgradeText: damge  + 1
   - speed: 0
-    damage: 9
+    damage: 20
     range: 2
     timeBetweenAttacks: 1.5
     amount: 3
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentExperience: 0
   pickup: {fileID: 7513865547856662660, guid: e0c7c20c89e9a5f409b7c686350aa5fe, type: 3}
-  expLevels: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  expLevels: 0100000002000000040000000600000008000000
   currentlevel: 1
   levelCount: 100
   weaponsToUpgrade: []
@@ -2912,35 +2912,35 @@ MonoBehaviour:
     damage: 6
     range: 1.5
     timeBetweenAttacks: 3
+    amount: 1
+    duration: 3
+    upgradeText: damge up, range up, speed up
+  - speed: 1.1
+    damage: 7
+    range: 2
+    timeBetweenAttacks: 3
     amount: 2
     duration: 3
     upgradeText: damge up, range up, speed up
   - speed: 1.2
-    damage: 7
-    range: 2
+    damage: 8
+    range: 2.2
+    timeBetweenAttacks: 3
+    amount: 2
+    duration: 3
+    upgradeText: damge up, range up, speed up
+  - speed: 1.2
+    damage: 9
+    range: 2.5
     timeBetweenAttacks: 3
     amount: 3
     duration: 3
     upgradeText: damge up, range up, speed up
   - speed: 1.3
-    damage: 8
-    range: 2.2
-    timeBetweenAttacks: 3
-    amount: 4
-    duration: 3
-    upgradeText: damge up, range up, speed up
-  - speed: 1.4
-    damage: 9
-    range: 2.5
-    timeBetweenAttacks: 3
-    amount: 5
-    duration: 3
-    upgradeText: damge up, range up, speed up
-  - speed: 1.5
     damage: 10
     range: 3
     timeBetweenAttacks: 3
-    amount: 6
+    amount: 3
     duration: 3
     upgradeText: fully upgraded
   weaponLevel: 0
@@ -104517,6 +104517,7 @@ MonoBehaviour:
   statsUpdated: 0
   icon: {fileID: -184466338, guid: df92d2c1a1d951b40bbeb716f49ede72, type: 3}
   damager: {fileID: 1149593293}
+  playerDamager: {fileID: 0}
   projectile: {fileID: 1149593292}
   weaponRange: 5
   whatIsEnemy:
@@ -106002,27 +106003,27 @@ MonoBehaviour:
   maxSpawn: {fileID: 486180943}
   checkPerFrame: 10
   waves:
-  - enemyToSpawn: {fileID: 6824065023825364718, guid: ee058f34bfb8e3643a2bc84d001b0928, type: 3}
-    waveLength: 10
-    timeBetweenSpawn: 0.5
+  - enemyToSpawn: {fileID: 3293700325892110915, guid: 7f067e1a0c4ba274db9525a033a51dcf, type: 3}
+    waveLength: 60
+    timeBetweenSpawn: 1
   - enemyToSpawn: {fileID: 1760426055807586376, guid: 654db0fe9000676478208881e63695bb, type: 3}
-    waveLength: 10
-    timeBetweenSpawn: 0.5
+    waveLength: 60
+    timeBetweenSpawn: 1
   - enemyToSpawn: {fileID: 9066287607199141046, guid: b62b10d169e4f8241aedfcab9a5e889c, type: 3}
-    waveLength: 10
-    timeBetweenSpawn: 0.5
+    waveLength: 60
+    timeBetweenSpawn: 1
   - enemyToSpawn: {fileID: 6824065023825364718, guid: ee058f34bfb8e3643a2bc84d001b0928, type: 3}
-    waveLength: 10
-    timeBetweenSpawn: 0.5
+    waveLength: 60
+    timeBetweenSpawn: 1
   - enemyToSpawn: {fileID: 6778551690955800261, guid: a527e5860d6aed14fb63001bba2fb09d, type: 3}
-    waveLength: 10
-    timeBetweenSpawn: 0.5
+    waveLength: 60
+    timeBetweenSpawn: 1
   - enemyToSpawn: {fileID: 6280705428406248075, guid: b4d1f623ff17e6840a6fd7928a159957, type: 3}
-    waveLength: 10
-    timeBetweenSpawn: 0.5
+    waveLength: 60
+    timeBetweenSpawn: 1
   - enemyToSpawn: {fileID: 8590423044585318786, guid: e4829b2f76a94f64f9fc0381c10e53d2, type: 3}
-    waveLength: 10
-    timeBetweenSpawn: 0.5
+    waveLength: 60
+    timeBetweenSpawn: 1
 --- !u!4 &2128335012
 Transform:
   m_ObjectHideFlags: 0
