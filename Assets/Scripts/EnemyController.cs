@@ -68,6 +68,10 @@ public class EnemyController : MonoBehaviour
     }
 
     public void TakeDamage(float damageToTake, EnumWeaponType weaponType) {
+        // 三娃收到的铁器伤害减半
+        if (brotherType.Equals(EnumBrotherType.Yellow) && EnumWeaponType.Iron.Equals(weaponType)) {
+            damageToTake /= 2;
+        }
         health -= damageToTake;
         if (health <= 0) {
             Destroy(gameObject);
