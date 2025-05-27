@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - speed: 3
-    damage: 1
+    damage: 15
     range: 1
     timeBetweenAttacks: 5
     amount: 1
@@ -381,9 +381,10 @@ MonoBehaviour:
   health: 20
   knockBackTime: 0.5
   expToGive: 1
-  coinValue: 10000
+  coinValue: 10
   coinDropRate: 0.2
   brotherType: 3
+  knockBackSpeed: 0.5
 --- !u!114 &2914554203605727240
 MonoBehaviour:
   m_ObjectHideFlags: 0

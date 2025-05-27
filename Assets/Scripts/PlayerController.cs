@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public List<Weapon> unassignedWeapons, assignedWeapons;
 
+    public List<Skill> unassignedSkills, assignedSkills;
+
     public int maxWeapons = 3;
 
     private bool isSlowed = false;

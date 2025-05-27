@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     public int coinValue = 1;
     public float coinDropRate = 0.2f;
     public EnumBrotherType brotherType;
+    public float knockBackSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +40,11 @@ public class EnemyController : MonoBehaviour
             if (knockBackCounter > 0) {
                 knockBackCounter -= Time.deltaTime;
                 if (moveSpeed > 0) {
-                    moveSpeed = -moveSpeed * 2f;
+                    moveSpeed = -moveSpeed * knockBackSpeed;
                 }
 
                 if (knockBackCounter <= 0) {
-                    moveSpeed = Mathf.Abs(moveSpeed * .5f);
+                    moveSpeed = Mathf.Abs(moveSpeed / knockBackSpeed);
                 }
             }
 

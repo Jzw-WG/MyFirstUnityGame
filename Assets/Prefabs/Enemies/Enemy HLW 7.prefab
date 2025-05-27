@@ -288,9 +288,10 @@ MonoBehaviour:
   health: 50
   knockBackTime: 0.5
   expToGive: 1
-  coinValue: 10000
+  coinValue: 20
   coinDropRate: 0.2
   brotherType: 6
+  knockBackSpeed: 0.2
 --- !u!114 &7999953471902455829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +368,6 @@ MonoBehaviour:
   absorbInterval: 6
   absorbDuration: 3
   absorbTime: 2
-  absorbRadius: 8
+  absorbRadius: 10
   huluTransform: {fileID: 8036764912274889461}
   sprite: {fileID: 7827328311097433633}

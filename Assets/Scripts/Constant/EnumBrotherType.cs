@@ -7,5 +7,6 @@ public enum EnumBrotherType
     Green,     // 四娃
     Cyan,      // 五娃
     Blue,      // 六娃
-    Purple     // 七娃
+    Purple,    // 七娃
+    Unknown    // 非
 }
