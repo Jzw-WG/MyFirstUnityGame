@@ -97,9 +97,9 @@ GameObject:
   - component: {fileID: 8481230223324475008}
   - component: {fileID: 8582372739400890951}
   - component: {fileID: 1382078360266811385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Frog3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -191,7 +191,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8582372739400890951
 MonoBehaviour:
   m_ObjectHideFlags: 0

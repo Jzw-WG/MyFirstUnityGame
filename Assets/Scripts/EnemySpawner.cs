@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private int enemyToCheck;
 
     public List<WaveInfo> waves;
+    public List<WaveInfo> infinateWaves;
     private int currentWave;
     private float waveCounter;
     // Start is called before the first frame update
@@ -112,8 +113,45 @@ public class EnemySpawner : MonoBehaviour
 
     public void GoToNextWave() {
         currentWave++;
-        if (currentWave >= waves.Count) {
-            currentWave = waves.Count - 1;
+        if (currentWave >= waves.Count)
+        {
+            if (infinateWaves.Count == 0)
+            {
+                // 确定最无限的怪物列表
+                for (int i = 0; i < waves.Count; i++)
+                {
+                    WaveInfo info = waves[i];
+                    EnemyController controller = info.enemyToSpawn.GetComponent<EnemyController>();
+                    if (controller.brotherType == EnumBrotherType.Unknown)
+                    {
+                        continue;
+                    }
+                    infinateWaves.Add(info);
+                }
+                waves = infinateWaves;
+            }
+            // 每次循环增加属性
+            EnemyController lastEnemy = waves[waves.Count - 1].enemyToSpawn.GetComponent<EnemyController>();
+            for (int i = 0; i < waves.Count; i++)
+            {
+                EnemyController curEnemy = waves[i].enemyToSpawn.GetComponent<EnemyController>();
+                if (i == 0)
+                {
+                    curEnemy.damage = lastEnemy.damage * 1.1f;
+                    curEnemy.expToGive = lastEnemy.expToGive + 5;
+                    curEnemy.coinValue = lastEnemy.coinValue + 5;
+                    curEnemy.health = lastEnemy.health * 1.1f;
+                }
+                else
+                {
+                    EnemyController preEnemy = waves[i - 1].enemyToSpawn.GetComponent<EnemyController>();
+                    curEnemy.damage = preEnemy.damage * 1.1f;
+                    curEnemy.expToGive = preEnemy.expToGive + 5;
+                    curEnemy.coinValue = preEnemy.coinValue + 5;
+                    curEnemy.health = preEnemy.health * 1.1f;
+                }
+            }
+            currentWave = 0;
         }
         waveCounter = waves[currentWave].waveLength;
         spawnCounter = waves[currentWave].timeBetweenSpawn;
