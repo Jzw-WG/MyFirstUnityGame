@@ -19,7 +19,7 @@ public class PlayerStatController : MonoBehaviour
     {
         for (int i = health.Count - 1; i < healthLevelCount; i++)
         {
-            health.Add(new PlayerStatValue(health[i].cost + health[1].cost, health[i].value + (health[1].value - health[0].value)));
+            health.Add(new PlayerStatValue(health[i].cost + (health[i].cost - health[i - 1].cost), health[i].value + (health[i].value - health[i - 1].value)));
         }
 
         for (int i = moveSpeed.Count - 1; i < moveSpeedLevelCount; i++)

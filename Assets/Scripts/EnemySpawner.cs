@@ -120,7 +120,11 @@ public class EnemySpawner : MonoBehaviour
                 // 确定最无限的怪物列表
                 for (int i = 0; i < waves.Count; i++)
                 {
-                    WaveInfo info = waves[i];
+                    WaveInfo info = new WaveInfo();
+                    GameObject enemyClone = Instantiate(waves[i].enemyToSpawn);
+                    info.enemyToSpawn = enemyClone;
+                    info.waveLength = waves[i].waveLength;
+                    info.timeBetweenSpawn = waves[i].timeBetweenSpawn;
                     EnemyController controller = info.enemyToSpawn.GetComponent<EnemyController>();
                     if (controller.brotherType == EnumBrotherType.Unknown)
                     {

@@ -25,86 +25,126 @@ public class UIController : MonoBehaviour
     public TMP_Text endTimeText;
     public string mainMenuName;
     public GameObject pauseScreen;
+    public TMP_Text speedUpText;
+    private float gameSpeed;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameSpeed = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             PauseUnpause();
         }
     }
 
-    public void UpdateExperience(int currentExp, int levelExp, int currentlevel) {
+    public void UpdateExperience(int currentExp, int levelExp, int currentlevel)
+    {
         explvlSilder.maxValue = levelExp;
         explvlSilder.value = currentExp;
         explvlText.text = "level: " + currentlevel;
     }
 
-    public void SkipLevelUp() {
+    public void SkipLevelUp()
+    {
         levelUpPanel.SetActive(false);
-        Time.timeScale = 1f;
+        resumeTimeScale();
     }
 
-    public void UpdateCoins() {
+    public void UpdateCoins()
+    {
         coinAmountText.text = "Coins: " + CoinController.instance.currentCoins;
     }
 
-    
-    public void PurchaseMoveSpeed() {
+
+    public void PurchaseMoveSpeed()
+    {
         PlayerStatController.instance.PurchaseMoveSpeed();
         SkipLevelUp();
     }
 
-    public void PurchaseHealth() {
+    public void PurchaseHealth()
+    {
         PlayerStatController.instance.PurchaseHealth();
         SkipLevelUp();
     }
 
-    public void PurchasePickupRange() {
+    public void PurchasePickupRange()
+    {
         PlayerStatController.instance.PurchasePickupRange();
         SkipLevelUp();
     }
 
-    public void PurchaseMaxWeapons() {
+    public void PurchaseMaxWeapons()
+    {
         PlayerStatController.instance.PurchaseMaxWeapons();
         SkipLevelUp();
     }
 
-    public void UpdateTimer(float time) {
+    public void UpdateTimer(float time)
+    {
         float minutes = Mathf.FloorToInt(time / 60f);
         float seconds = Mathf.FloorToInt(time % 60);
 
         timerText.text = "Time: " + minutes + ":" + seconds.ToString("00");
     }
 
-    public void GoToMainMenu() {
+    public void GoToMainMenu()
+    {
         SceneManager.LoadScene(mainMenuName);
         Time.timeScale = 1f;
     }
 
-    public void Restart() {
+    public void Restart()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }
 
-    public void Quit() {
+    public void Quit()
+    {
         Application.Quit();
     }
 
-    public void PauseUnpause() {
-        if (pauseScreen.activeSelf == false) {
+    public void PauseUnpause()
+    {
+        if (pauseScreen.activeSelf == false)
+        {
             pauseScreen.SetActive(true);
             Time.timeScale = 0f;
-        } else {
+        }
+        else
+        {
             pauseScreen.SetActive(false);
-            if (levelUpPanel.activeSelf == false) {
-                Time.timeScale = 1f;
+            if (levelUpPanel.activeSelf == false)
+            {
+                resumeTimeScale();
             }
         }
+    }
+
+    public void SpeedChange()
+    {
+        if (gameSpeed == 1f)
+        {
+            gameSpeed = 2f;
+            Time.timeScale = 2f;
+            speedUpText.text = ">> X2";
+        }
+        else if (gameSpeed == 2f)
+        {
+            gameSpeed = 1f;
+            Time.timeScale = 1f;
+            speedUpText.text = ">> X1";
+        }
+    }
+
+    public void resumeTimeScale()
+    {
+        Time.timeScale = gameSpeed;
     }
 }
