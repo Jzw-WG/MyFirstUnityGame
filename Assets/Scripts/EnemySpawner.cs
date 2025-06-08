@@ -21,6 +21,8 @@ public class EnemySpawner : MonoBehaviour
     public List<WaveInfo> infinateWaves;
     private int currentWave;
     private float waveCounter;
+    private int enemiesSpawnedInWave; 
+    private infinateWaveInfo preWaveEnemyInfo = new infinateWaveInfo();
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,8 @@ public class EnemySpawner : MonoBehaviour
         despawnDistance = Vector3.Distance(transform.position, maxSpawn.position) + 4f;
     
         currentWave = -1;
+
+        enemiesSpawnedInWave = 0;
         GoToNextWave();
     }
 
@@ -58,6 +62,28 @@ public class EnemySpawner : MonoBehaviour
                     spawnCounter = waves[currentWave].timeBetweenSpawn;
 
                     GameObject newEnemy = Instantiate(waves[currentWave].enemyToSpawn, SelectSpawnPoint(), Quaternion.identity);
+                    EnemyController curEnemy = newEnemy.GetComponent<EnemyController>();
+
+                    // 进入无限
+                    if (infinateWaves.Count > 0 && preWaveEnemyInfo != null)
+                    {
+                        // 每波次都比上一波强化
+                        curEnemy.damage = preWaveEnemyInfo.damage * 1.1f;
+                        curEnemy.expToGive = preWaveEnemyInfo.expToGive + 5;
+                        curEnemy.coinValue = preWaveEnemyInfo.coinValue + 5;
+                        curEnemy.health = preWaveEnemyInfo.maxHealth * 1.1f;
+                        curEnemy.maxHealth = preWaveEnemyInfo.maxHealth * 1.1f;
+                    }
+                    enemiesSpawnedInWave++;
+                    // 每波次最后一次生成时记录为上一波的敌人属性
+                    if (waveCounter <= waves[currentWave].timeBetweenSpawn)
+                    {
+                        preWaveEnemyInfo.damage = curEnemy.damage;
+                        preWaveEnemyInfo.health = curEnemy.health;
+                        preWaveEnemyInfo.maxHealth = curEnemy.maxHealth;
+                        preWaveEnemyInfo.expToGive = curEnemy.expToGive;
+                        preWaveEnemyInfo.coinValue = curEnemy.coinValue;
+                    }
                     spawnedEnemies.Add(newEnemy);
                 }
             }
@@ -113,6 +139,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void GoToNextWave() {
         currentWave++;
+        enemiesSpawnedInWave = 0;
         if (currentWave >= waves.Count)
         {
             if (infinateWaves.Count == 0)
@@ -120,40 +147,18 @@ public class EnemySpawner : MonoBehaviour
                 // 确定最无限的怪物列表
                 for (int i = 0; i < waves.Count; i++)
                 {
-                    WaveInfo info = new WaveInfo();
-                    GameObject enemyClone = Instantiate(waves[i].enemyToSpawn);
-                    info.enemyToSpawn = enemyClone;
-                    info.waveLength = waves[i].waveLength;
-                    info.timeBetweenSpawn = waves[i].timeBetweenSpawn;
-                    EnemyController controller = info.enemyToSpawn.GetComponent<EnemyController>();
+                    EnemyController controller = waves[i].enemyToSpawn.GetComponent<EnemyController>();
                     if (controller.brotherType == EnumBrotherType.Unknown)
                     {
                         continue;
                     }
+                    WaveInfo info = new WaveInfo();
+                    info.enemyToSpawn = waves[i].enemyToSpawn;
+                    info.waveLength = waves[i].waveLength;
+                    info.timeBetweenSpawn = waves[i].timeBetweenSpawn;
                     infinateWaves.Add(info);
                 }
                 waves = infinateWaves;
-            }
-            // 每次循环增加属性
-            EnemyController lastEnemy = waves[waves.Count - 1].enemyToSpawn.GetComponent<EnemyController>();
-            for (int i = 0; i < waves.Count; i++)
-            {
-                EnemyController curEnemy = waves[i].enemyToSpawn.GetComponent<EnemyController>();
-                if (i == 0)
-                {
-                    curEnemy.damage = lastEnemy.damage * 1.1f;
-                    curEnemy.expToGive = lastEnemy.expToGive + 5;
-                    curEnemy.coinValue = lastEnemy.coinValue + 5;
-                    curEnemy.health = lastEnemy.health * 1.1f;
-                }
-                else
-                {
-                    EnemyController preEnemy = waves[i - 1].enemyToSpawn.GetComponent<EnemyController>();
-                    curEnemy.damage = preEnemy.damage * 1.1f;
-                    curEnemy.expToGive = preEnemy.expToGive + 5;
-                    curEnemy.coinValue = preEnemy.coinValue + 5;
-                    curEnemy.health = preEnemy.health * 1.1f;
-                }
             }
             currentWave = 0;
         }
@@ -164,8 +169,17 @@ public class EnemySpawner : MonoBehaviour
 
 // 可以在unity中展示
 [System.Serializable]
-public class WaveInfo {
+public class WaveInfo
+{
     public GameObject enemyToSpawn;
     public float waveLength = 10f;
     public float timeBetweenSpawn = 1f;
+}
+
+public class infinateWaveInfo {
+    public float damage;
+    public float health;
+    public float maxHealth;
+    public int expToGive;
+    public int coinValue;
 }

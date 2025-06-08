@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private float hitCounter;
 
     public float health = 5f;
+    public float maxHealth;
 
     public float knockBackTime = .5f;
     private float knockBackCounter;
@@ -26,6 +27,10 @@ public class EnemyController : MonoBehaviour
     public EnumBrotherType brotherType;
     public float knockBackSpeed;
     // Start is called before the first frame update
+    void Awake()
+    {
+        maxHealth = health;
+    }
     void Start()
     {
         // target = FindObjectOfType<PlayerController>().transform;
